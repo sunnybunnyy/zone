@@ -1,132 +1,114 @@
 <svg>
   <!-- Home Screen -->
-  <defs>
-    <style>
-      .background { fill: black; }
-      .text { fill: white; font-family: System-Regular; }
-      .header { font-size: 30; font-weight: bold; }
-      .zone-item { fill: #222222; }
-      .zone-text { font-size: 24; }
-      .zone-range { font-size: 18; fill: #cccccc; }
-      .hr-value { font-size: 36; fill: #ff5555; }
-      .warning { display: none; fill: #ff0000; }
-      .button { fill: #333333 }
-    </style>
-  </defs>
-
-  <!-- Home Screen -->
   <g id="home-screen">
-    <rect class="background" width="100%" height="100%" />
-    <text class="text header" x="50%" y="10%" text-anchor="middle">Zone</text>
+    <rect id="home-bg" width="100%" height="100%" fill="black" />
+    <text id="home-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone</text>
 
     <!-- Zone List -->
-    <g id="zone-1" class="zone-item" x="10%" y="20%">
-      <rect width="90%" height="15%" x="5%" y="20%" rx="10" />
-      <text id="label" class="text zone-text" x="10%" y="30%">Zone 1</text>
-      <text id="range" class="text zone-range" x="10%" y="40%">90-110bpm</text>
+    <g id="zone-1">
+      <rect id="zone-1-bg" width="90%" height="15%" x="5%" y="20%" rx="10" fill="#222222" />
+      <text id="zone-1-label" x="10%" y="30%" fill="white" font-size="24">Zone 1</text>
+      <text id="zone-1-range" x="10%" y="40%" fill="#cccccc" font-size="18">90-110bpm</text>
     </g>
 
-    <g id="zone-2" class="zone-item" x="10%" y="40%">
-      <rect width="90%" height="15%" x="5%" y="40%" rx="10" />
-      <text id="label" class="text zone-text" x="10%" y="50%">Zone 1</text>
-      <text id="range" class="text zone-range" x="10%" y="60%">90-110bpm</text>
+    <g id="zone-2">
+      <rect id="zone-2-bg" width="90%" height="15%" x="5%" y="40%" rx="10" fill="#222222" />
+      <text id="zone-2-label" x="10%" y="50%" fill="white" font-size="24">Zone 2</text>
+      <text id="zone-2-range" x="10%" y="60%" fill="#cccccc" font-size="18">110-130bpm</text>
     </g>
     
-    <g id="zone-1" class="zone-item" x="10%" y="60%">
-      <rect width="90%" height="15%" x="5%" y="60%" rx="10" />
-      <text id="label" class="text zone-text" x="10%" y="70%">Zone 1</text>
-      <text id="range" class="text zone-range" x="10%" y="80%">90-110bpm</text>
+    <g id="zone-3">
+      <rect id="zone-3-bg" width="90%" height="15%" x="5%" y="60%" rx="10" fill="#222222" />
+      <text id="zone-3-label" x="10%" y="70%" fill="white" font-size="24">Zone 3</text>
+      <text id="zone-3-range" x="10%" y="80%" fill="#cccccc" font-size="18">130-150bpm</text>
     </g>
 
-    <g id="zone-1" class="zone-item" x="10%" y="80%">
-      <rect width="90%" height="15%" x="5%" y="80%" rx="10" />
-      <text id="label" class="text zone-text" x="10%" y="90%">Zone 1</text>
-      <text id="range" class="text zone-range" x="10%" y="100%">90-110bpm</text>
+    <g id="zone-4">
+      <rect id="zone-4-bg" width="90%" height="15%" x="5%" y="80%" rx="10" fill="#222222" />
+      <text id="zone-4-label" x="10%" y="90%" fill="white" font-size="24">Zone 4</text>
+      <text id="zone-4-range" x="10%" y="100%" fill="#cccccc" font-size="18">150-170bpm</text>
     </g>
 
-    <g id="zone-1" class="zone-item" x="10%" y="100%">
-      <rect width="90%" height="15%" x="5%" y="100%" rx="10" />
-      <text id="label" class="text zone-text" x="10%" y="110%">Zone 1</text>
-      <text id="range" class="text zone-range" x="10%" y="120%">90-110bpm</text>
+    <g id="zone-5">
+      <rect id="zone-5-bg" width="90%" height="15%" x="5%" y="100%" rx="10" fill="#222222" />
+      <text id="zone-5-label" x="10%" y="110%" fill="white" font-size="24">Zone 5</text>
+      <text id="zone-5-range" x="10%" y="120%" fill="#cccccc" font-size="18">170-190bpm</text>
     </g>
 
     <!-- Settings Button -->
-    <g id="settings-btn" class="button">
-      <rect width="30%" height="10%" x="35%" y="85%" rx="10" />
-      <text class="text" x="50%" y="92%" text-anchor="middle">Settings</text>
+    <g id="settings-btn">
+      <rect id="settings-btn-bg" width="30%" height="10%" x="35%" y="85%" rx="10" fill="#333333" />
+      <text id="settings-btn-text" x="50%" y="92%" text-anchor="middle" fill="white">Settings</text>
     </g>
   </g>
 
   <!-- Run Mode Screen -->
   <g id="run-screen" display="none">
-    <rect class="background" width="100%" height="100%" />
-    <text class="text header" x="50%" y="10%" text-anchor="middle">Zone Run</text>
+    <rect id="run-bg" width="100%" height="100%" fill="black" />
+    <text id="run-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone Run</text>
 
-    <text id="zone-label" class="text" x="50%" y="20%" text-anchor="middle">Zone 3</text>
-    <text id="hr-value" class="hr-value" x="50%" y="50%" text-anchor="middle">142</text>
-    <text class="text" x="50%" y="55%" text-anchor="middle">bpm</text>
+    <text id="zone-label" x="50%" y="20%" text-anchor="middle" fill="white">Zone 3</text>
+    <text id="hr-value" x="50%" y="50%" text-anchor="middle" fill="#ff5555" font-size="36">142</text>
+    <text id="hr-unit" x="50%" y="55%" text-anchor="middle" fill="white">bpm</text>
     
-    <image id="warning" class="warning" x="45%" y="60%" width="10%" height="10%" href="warning.png" />
+    <image id="warning" x="45%" y="60%" width="10%" height="10%" href="warning.png" display="none" />
     
-    <g id="end-workout-btn" class="button">
-      <rect width="40%" height="12%" x="30%" y="80%" rx="10" />
-      <text class="text" x="50%" y="87%" text-anchor="middle">End Workout</text>
+    <g id="end-workout-btn">
+      <rect id="end-btn-bg" width="40%" height="12%" x="30%" y="80%" rx="10" fill="#333333" />
+      <text id="end-btn-text" x="50%" y="87%" text-anchor="middle" fill="white">End Workout</text>
     </g>
   </g>
 
   <!-- Settings Screen -->
   <g id="settings-screen" display="none">
-    <rect class="background" width="100%" height="100%" />
-    <text class="text header" x="50%" y="10%" text-anchor="middle">Zone Settings</text>
+    <rect id="settings-bg" width="100%" height="100%" fill="black" />
+    <text id="settings-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone Settings</text>
   
     <!-- Zone 1 Editor -->
-    <text class="text" x="10%" y="20%">Zone 1:</text>
-    <text class="text" x="20%" y="25%">Label:</text>
-    <rect width="60%" height="6%" x="30%" y="22%" fill="#333333" />
-    <input id="edit-zone-1-label" class="text" x="32%" y="25%" width="56%" height="6%" type="text" value="Zone 1" />
+    <text id="zone1-title" x="10%" y="20%" fill="white">Zone 1:</text>
+    <text id="zone1-label-text" x="20%" y="25%" fill="white">Label:</text>
+    <rect id="zone1-label-bg" width="60%" height="6%" x="30%" y="22%" fill="#333333" />
+    <text id="zone1-label-value" x="32%" y="25%" fill="white">Zone 1</text>
 
-    <text class="text" x="20%" y="35%">Min:</text>
-    <rect width="20%" height="6%" x="30%" y="32%" fill="#333333" />
-    <input id="edit-zone-1-min" class="text" x="32%" y="35%" width="16%" height="6%" type="number" value="90" />
+    <text id="zone1-min-text" x="20%" y="35%" fill="white">Min:</text>
+    <rect id="zone1-min-bg" width="20%" height="6%" x="30%" y="32%" fill="#333333" />
+    <text id="zone1-min-value" x="32%" y="35%" fill="white">90</text>
 
-    <text class="text" x="55%" y="35%">Max:</text>
-    <rect width="20%" height="6%" x="65%" y="32%" fill="#333333" />
-    <input id="edit-zone-1-max" class="text" x="67%" y="35%" width="16%" height="6%" type="number" value="110" />
+    <text id="zone1-max-text" x="55%" y="35%" fill="white">Max:</text>
+    <rect id="zone1-max-bg" width="20%" height="6%" x="65%" y="32%" fill="#333333" />
+    <text id="zone1-max-value" x="67%" y="35%" fill="white">110</text>
     
-    <!-- TODO: Repeat for zones 2-5 with different y positions -->
+    <!-- Repeat for zones 2-5 with different y positions -->
 
     <!-- Save/Cancel Buttons -->
-    <g id="save-btn" class="button">
-      <rect width="30%" height="10%" x="10%" y="85%" rx="10" />
-      <text class="text" x="25%" y="92%" text-anchor="middle">Save</text>
+    <g id="save-btn">
+      <rect id="save-btn-bg" width="30%" height="10%" x="10%" y="85%" rx="10" fill="#333333" />
+      <text id="save-btn-text" x="25%" y="92%" text-anchor="middle" fill="white">Save</text>
     </g>
 
-    <g id="cancel-btn" class="button">
-      <rect width="30%" height="10%" x="60%" y="85%" rx="10" />
-      <text class="text" x="75%" y="92%" text-text-anchor="middle">Cancel</text>
-  
+    <g id="cancel-btn">
+      <rect id="cancel-btn-bg" width="30%" height="10%" x="60%" y="85%" rx="10" fill="#333333" />
+      <text id="cancel-btn-text" x="75%" y="92%" text-anchor="middle" fill="white">Cancel</text>
     </g>
   </g>
 
   <!-- Summary Screen -->
   <g id="summary-screen" display="none">
-    <rect class="background" width="100%" height="100%" />
-    <text class="text header" x="50%" y="10%" text-anchor="middle">Workout Summary</text>
+    <rect id="summary-bg" width="100%" height="100%" fill="black" />
+    <text id="summary-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Workout Summary</text>
 
     <!-- Zone Time Breakdown -->
-    <g id="summary-zone-1">
-      <text id="label" class="text" x="10%" y="20%">Zone 1:</text>
-      <text id="time" class="text" x="80%" y="20%" text-anchor="end">25%</text>
-    </g>
+    <text id="summary-zone1-label" x="10%" y="20%" fill="white">Zone 1:</text>
+    <text id="summary-zone1-value" x="80%" y="20%" text-anchor="end" fill="white">25%</text>
 
-    <!-- TODO: Repeat for zones 2-5 with different y positions -->
+    <!-- Repeat for zones 2-5 with different y positions -->
 
-    <text class="text" x="50%" y="70%" text-anchor="middle">Total Time:</text>
-    <text id="total-time" class="text" x="50%" y="75%" text-anchor="middle">32m 15s</text>
+    <text id="total-time-label" x="50%" y="70%" text-anchor="middle" fill="white">Total Time:</text>
+    <text id="total-time-value" x="50%" y="75%" text-anchor="middle" fill="white">32m 15s</text>
 
-    <g id="done-btn" class="button">
-      <rect width="30%" height="10%" x="35%" y="85%" rx="10" />
-      <text class="text" x="50%" y="92%" text-anchor="middle">Done</text>
+    <g id="done-btn">
+      <rect id="done-btn-bg" width="30%" height="10%" x="35%" y="85%" rx="10" fill="#333333" />
+      <text id="done-btn-text" x="50%" y="92%" text-anchor="middle" fill="white">Done</text>
     </g>
   </g>
 </svg>

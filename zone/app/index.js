@@ -8,7 +8,7 @@ import * as fs from "fs";
 
 // Import screens
 import Home from "./components/home";
-import RunMode from "./component/run-mode";
+import RunMode from "./components/run-mode";
 import Settings from "./components/settings";
 import Summary from "./components/summary";
 
