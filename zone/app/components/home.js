@@ -1,11 +1,13 @@
 import * as document from "document";
 import { swapScreen } from "../../common/utils";
+import EditZone from "./edit-zone";
 
 export default class Home {
     constructor(state) {
         this.state = state;
         this.onZoneSelected = null;
         this.onSettingsSelected = null;
+        this.editZone = new EditZone(state);
 
         this.el = document.getElementById("home-screen");
         this.zoneLabels = [];
@@ -21,6 +23,12 @@ export default class Home {
             }
         }
 
+        // Edit zone callback
+        this.editZone.onSave = () => {
+            this.update();
+            swapScreen(this.el);
+        };
+
         // Settings button
         const settingsBtn = document.getElementById("settings-btn");
         if (settingsBtn) {
@@ -28,6 +36,10 @@ export default class Home {
         }
 
         this.update();
+    }
+
+    handleZoneSelect(zoneIndex) {
+        this.editZone.show(zoneIndex);
     }
 
     update() {
