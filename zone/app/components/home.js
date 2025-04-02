@@ -8,14 +8,16 @@ export default class Home {
         this.onSettingsSelected = null;
 
         this.el = document.getElementById("home-screen");
-        this.zoneElements = [];
+        this.zoneLabels = [];
+        this.zoneRanges = [];
 
         // Create zone list items
         for (let i = 0; i < 5; i++) {
             const zoneEl = document.getElementById(`zone-${i + 1}`);
             if (zoneEl) {
                 zoneEl.onclick = () => this.handleZoneSelect(i);
-                this.zoneElements.push(zoneEl);
+                this.zoneLabels.push(document.getElementById(`zone-${i + 1}-label`));
+                this.zoneRanges.push(document.getElementById(`zone-${i + 1}-range`));
             }
         }
 
@@ -30,10 +32,11 @@ export default class Home {
 
     update() {
         this.state.zones.forEach((zone, i) => {
-            const zoneEl = this.zoneElements[i];
-            if (zoneEl) {
-                zoneEl.getElementById("label").text = `${i + 1}: ${zone.label}`;
-                zoneEl.getElementById("range").text = `${zone.min} - ${zone.max} bpm`;
+            if (this.zoneLabels[i]) {
+                this.zoneLabels[i].text = `Zone ${i + 1}: ${zone.label}`;
+            }
+            if (this.zoneRanges[i]) {
+                this.zoneRanges[i].text = `${zone.min}-${zone.max} bpm`;
             }
         });
     }
