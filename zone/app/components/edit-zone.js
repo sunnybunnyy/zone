@@ -20,6 +20,8 @@ export default class EditZone {
         document.getElementById("save-zone-btn").onclick = () => this.save();
     }
 
+    
+
     show(zoneIndex) {
         this.currentZoneIndex = zoneIndex;
         const zone = this.state.zones[zoneIndex];
