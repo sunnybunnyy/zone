@@ -29,6 +29,35 @@ const settingsScreen = new Settings(state);
 const summaryScreen = new Summary(state);
 const editZoneScreen = new EditZone(state);
 
+class Navigation {
+    constructor() {
+        this.currentScreen = null;
+        this.screens = {
+            home: homeScreen,
+            run: runScreen,
+            settings: settingsScreen,
+            summary: summaryScreen,
+            editZone: editZoneScreen
+        };
+    }
+
+    show(screenName, ...args) {
+        // Hide current screen if exists
+        if (this.currentScreen && this.currentScreen.hide) {
+            this.currentScreen.hide();
+        }
+
+        // Show new screen
+        const screen = this.screens[screenName];
+        if (screen && screen.show) {
+            this.currentScreen = screen;
+            screen.show(...args);
+        }
+    }
+}
+
+const navigation = new Navigation();
+
 // Show home screen initially
 homeScreen.show();
 
