@@ -11,6 +11,7 @@ import Home from "./components/home";
 import RunMode from "./components/run-mode";
 import Settings from "./components/settings";
 import Summary from "./components/summary";
+import EditZone from "./components/edit-zone";
 
 // App state
 let state = {
@@ -26,6 +27,7 @@ const homeScreen = new Home(state);
 const runScreen = new RunMode(state);
 const settingsScreen = new Settings(state);
 const summaryScreen = new Summary(state);
+const editZoneScreen = new EditZone(state);
 
 // Show home screen initially
 homeScreen.show();
@@ -35,6 +37,10 @@ homeScreen.onZoneSelected = (zone) => {
     state.currentZone = zone;
     runScreen.show();
     startWorkout();
+};
+
+homeScreen.onEditZone = (zoneIndex) => {
+    editZoneScreen.show(zoneIndex);
 };
 
 homeScreen.onSettingsSelected = () => {
