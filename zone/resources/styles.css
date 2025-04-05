@@ -14,3 +14,9 @@
 .application-fill           { fill: fb-blue; }
 .foreground-fill            { fill: fb-white; }
 .background-fill            { fill: fb-black; }
+
+#tumbler-left               { x: 24;   y: 120; width: 120; height: 100%; }
+#tumbler-right               { x: 165;  y: 120; width: 120; height: 100%; }
+#tumbler-left #value text   { x: 100%; text-anchor: end; }
+.tumbler-colon              { x: 141;  y: -5; width: 12; }
+

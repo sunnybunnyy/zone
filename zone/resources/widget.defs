@@ -4,5 +4,7 @@
     <link rel="import" href="/mnt/sysassets/system_widget.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/icon_button.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/tumblerview_widget.defs" />
   </defs>
 </svg>

@@ -14,6 +14,23 @@ import Settings from "./components/settings";
 import Summary from "./components/summary";
 import EditZone from "./components/edit-zone";
 
+let tumblerLeft = document.getElementById("tumbler-left");
+let tumblerRight = document.getElementById("tumbler-right");
+
+tumblerLeft.addEventListener("select", (evt) => {
+  let selectedIndex = parseInt(tumblerLeft.value);
+  let selectedItem = tumblerLeft.getElementById(`hour-item${selectedIndex}`);
+  let selectedValue = selectedItem.getElementById("text").text;
+  console.log(`HOUR: index: ${selectedIndex} :: value: ${selectedValue}`);
+});
+
+tumblerRight.addEventListener("select", (evt) => {
+  let selectedIndex = tumblerRight.value;
+  let selectedItem = tumblerRight.getElementById(`min-item${selectedIndex}`);
+  let selectedValue = selectedItem.getElementById("text").text;
+  console.log(`MINS: index: ${selectedIndex} :: value: ${selectedValue}`);
+});
+
 // App state
 let state = {
     zones: loadZones(),

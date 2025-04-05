@@ -10,7 +10,7 @@
       <rect id="zone-1-bg" width="80%" height="10%" x="10%" y="13%" rx="10" fill="#222222" pointer-events="visible" />
       <circle cx="90%" cy="18%" r="16" fill="#222222" />
       <text id="zone-1-label" x="10%" y="20%" fill="white" font-size="24">Zone 1</text>
-      <text id="zone-1-range" x="85%" y="20%" text-anchor="end" fill="#cccccc" font-size="18">90-110bpm</text>
+      <text id="zone-1-range" x="85%" y="20%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-2">
@@ -18,7 +18,7 @@
       <rect id="zone-2-bg" width="80%" height="10%" x="10%"  y="28%" rx="10" fill="#222222" pointer-events="visible" />
       <circle cx="90%" cy="33%" r="16" fill="#222222" />
       <text id="zone-2-label" x="10%" y="35%" fill="white" font-size="24">Zone 2</text>
-      <text id="zone-2-range" x="85%" y="35%" text-anchor="end" fill="#cccccc" font-size="18">110-130bpm</text>
+      <text id="zone-2-range" x="85%" y="35%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
     
     <g id="zone-3">
@@ -26,7 +26,7 @@
       <rect id="zone-3-bg" width="80%" height="10%" x="10%"  y="42%" rx="10" fill="#222222" pointer-events="visible" />
       <circle cx="90%" cy="47%" r="16" fill="#222222" />
       <text id="zone-3-label" x="10%" y="49%" fill="white" font-size="24">Zone 3</text>
-      <text id="zone-3-range" x="85%" y="49%" text-anchor="end" fill="#cccccc" font-size="18">130-150bpm</text>
+      <text id="zone-3-range" x="85%" y="49%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-4">
@@ -34,7 +34,7 @@
       <rect id="zone-4-bg" width="80%" height="10%" x="10%" y="56%" rx="10" fill="#222222" pointer-events="visible" />
       <circle cx="90%" cy="61%" r="16" fill="#222222" />
       <text id="zone-4-label" x="10%" y="63%" fill="white" font-size="24">Zone 4</text>
-      <text id="zone-4-range" x="85%" y="63%" text-anchor="end" fill="#cccccc" font-size="18">150-170bpm</text>
+      <text id="zone-4-range" x="85%" y="63%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-5">
@@ -42,21 +42,14 @@
       <rect id="zone-5-bg" width="80%" height="10%" x="10%" y="70%" rx="10" fill="#222222" pointer-events="visible" />
       <circle cx="90%" cy="75%" r="16" fill="#222222" />
       <text id="zone-5-label" x="10%" y="77%" fill="white" font-size="24">Zone 5</text>
-      <text id="zone-5-range" x="85%" y="77%" text-anchor="end" fill="#cccccc" font-size="18">170-190bpm</text>
+      <text id="zone-5-range" x="85%" y="77%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <!-- Settings Button -->
     <use id="settings-btn" href="#text-button" class="text-button bottom application-fill plus-button" y="85%" height="20%">
       <set href="#text" attributeName="text-buffer" to="Settings" />
       <set href="#text" attributeName="y" to="50%" />
-      <set href="#background" attributeName="rx" to="50" />
     </use>
-    <g id="settings-btn2" pointer-events="visible">
-      <!--
-      <rect id="settings-btn-bg" width="30%" height="10%" x="35%" y="90%" rx="10" fill="#333333"  pointer-events="visible" />
-      <text id="settings-btn-text" x="50%" y="97%" text-anchor="middle" fill="white">Settings</text>
-      -->
-    </g>
 
   </g>
   <!-- Run Mode Screen -->
@@ -77,25 +70,642 @@
   </g>
 
   <!-- Settings Screen -->
-  <g id="settings-screen" class="screen" display="none">
+   
+  <g id="settings-screen" class="screen application-fill" display="none">
+  <!---
     <rect id="settings-bg" width="100%" height="100%" fill="black" />
     <text id="settings-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone Settings</text>
   
-    <!-- Zone 1 Editor -->
-    <text id="zone1-title" x="10%" y="20%" fill="white">Zone 1:</text>
-    <text id="zone1-label-text" x="20%" y="25%" fill="white">Label:</text>
-    <rect id="zone1-label-bg" width="60%" height="6%" x="30%" y="22%" fill="#333333" />
-    <text id="zone1-label-value" x="32%" y="25%" fill="white">Zone 1</text>
+     Zone 1 Editor 
+    <text id="zone1-title" x="10%" y="20%" fill="white" font-size="24">Zone 1</text>
 
-    <text id="zone1-min-text" x="20%" y="35%" fill="white">Min:</text>
-    <rect id="zone1-min-bg" width="20%" height="6%" x="30%" y="32%" fill="#333333" />
-    <text id="zone1-min-value" x="32%" y="35%" fill="white">90</text>
+    <rect id="zone1-min-bg" width="17%" height="10%" x="40%" y="12%" fill="#333333" />
+    <text id="zone1-min-value" x="43%" y="20%" fill="white" font-size="24">90</text>
+    <text x="60%" y="20%" fill="white" font-size="24">-</text>
 
-    <text id="zone1-max-text" x="55%" y="35%" fill="white">Max:</text>
-    <rect id="zone1-max-bg" width="20%" height="6%" x="65%" y="32%" fill="#333333" />
-    <text id="zone1-max-value" x="67%" y="35%" fill="white">110</text>
+    <rect id="zone1-max-bg" width="17%" height="10%" x="64%" y="12%" fill="#333333" />
+    <text id="zone1-max-value" x="67%" y="20%" fill="white" font-size="24">110</text>
     
+    <text id="zone1-max-value" x="85%" y="20%" fill="white" font-size="24">bpm</text>
+    -->
     <!-- Repeat for zones 2-5 with different y positions -->
+
+    <use id="tumbler-left" href="#tumblerview">
+        <use id="left-item0" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="100" />
+        </use>
+        <use id="left-item1" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="101" />
+        </use>
+        <use id="left-item2" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="102" />
+        </use>
+        <use id="left-item3" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="103" />
+        </use>
+        <use id="left-item4" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="104" />
+        </use>
+        <use id="left-item5" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="105" />
+        </use>
+        <use id="left-item6" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="106" />
+        </use>
+        <use id="left-item7" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="107" />
+        </use>
+        <use id="left-item8" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="108" />
+        </use>
+        <use id="left-item9" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="109" />
+        </use>
+        <use id="left-item10" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="110" />
+        </use>
+        <use id="left-item11" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="111" />
+        </use>
+        <use id="left-item12" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="112" />
+        </use>
+        <use id="left-item13" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="113" />
+        </use>
+        <use id="left-item14" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="114" />
+        </use>
+        <use id="left-item15" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="115" />
+        </use>
+        <use id="left-item16" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="116" />
+        </use>
+        <use id="left-item17" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="117" />
+        </use>
+        <use id="left-item18" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="118" />
+        </use>
+        <use id="left-item19" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="119" />
+        </use>
+        <use id="left-item20" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="120" />
+        </use>
+        <use id="left-item21" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="121" />
+        </use>
+        <use id="left-item22" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="122" />
+        </use>
+        <use id="left-item23" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="123" />
+        </use>
+        <use id="left-item24" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="124" />
+        </use>
+        <use id="left-item25" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="125" />
+        </use>
+        <use id="left-item26" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="126" />
+        </use>
+        <use id="left-item27" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="127" />
+        </use>
+        <use id="left-item28" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="128" />
+        </use>
+        <use id="left-item29" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="129" />
+        </use>
+        <use id="left-item30" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="130" />
+        </use>
+        <use id="left-item31" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="131" />
+        </use>
+        <use id="left-item32" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="132" />
+        </use>
+        <use id="left-item33" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="133" />
+        </use>
+        <use id="left-item34" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="134" />
+        </use>
+        <use id="left-item35" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="135" />
+        </use>
+        <use id="left-item36" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="136" />
+        </use>
+        <use id="left-item37" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="137" />
+        </use>
+        <use id="left-item38" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="138" />
+        </use>
+        <use id="left-item39" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="139" />
+        </use>
+        <use id="left-item40" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="140" />
+        </use>
+        <use id="left-item41" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="141" />
+        </use>
+        <use id="left-item42" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="142" />
+        </use>
+        <use id="left-item43" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="143" />
+        </use>
+        <use id="left-item44" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="144" />
+        </use>
+        <use id="left-item45" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="145" />
+        </use>
+        <use id="left-item46" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="146" />
+        </use>
+        <use id="left-item47" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="147" />
+        </use>
+        <use id="left-item48" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="148" />
+        </use>
+        <use id="left-item49" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="149" />
+        </use>
+        <use id="left-item50" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="150" />
+        </use>
+        <use id="left-item51" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="151" />
+        </use>
+        <use id="left-item52" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="152" />
+        </use>
+        <use id="left-item53" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="153" />
+        </use>
+        <use id="left-item54" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="154" />
+        </use>
+        <use id="left-item55" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="155" />
+        </use>
+        <use id="left-item56" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="156" />
+        </use>
+        <use id="left-item57" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="157" />
+        </use>
+        <use id="left-item58" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="158" />
+        </use>
+        <use id="left-item59" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="159" />
+        </use>
+        <use id="left-item60" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="160" />
+        </use>
+        <use id="left-item61" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="161" />
+        </use>
+        <use id="left-item62" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="162" />
+        </use>
+        <use id="left-item63" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="163" />
+        </use>
+        <use id="left-item64" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="164" />
+        </use>
+        <use id="left-item65" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="165" />
+        </use>
+        <use id="left-item66" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="166" />
+        </use>
+        <use id="left-item67" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="167" />
+        </use>
+        <use id="left-item68" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="168" />
+        </use>
+        <use id="left-item69" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="169" />
+        </use>
+        <use id="left-item70" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="170" />
+        </use>
+        <use id="left-item71" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="171" />
+        </use>
+        <use id="left-item72" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="172" />
+        </use>
+        <use id="left-item73" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="173" />
+        </use>
+        <use id="left-item74" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="174" />
+        </use>
+        <use id="left-item75" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="175" />
+        </use>
+        <use id="left-item76" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="176" />
+        </use>
+        <use id="left-item77" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="177" />
+        </use>
+        <use id="left-item78" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="178" />
+        </use>
+        <use id="left-item79" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="179" />
+        </use>
+        <use id="left-item80" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="180" />
+        </use>
+        <use id="left-item81" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="181" />
+        </use>
+        <use id="left-item82" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="182" />
+        </use>
+        <use id="left-item83" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="183" />
+        </use>
+        <use id="left-item84" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="184" />
+        </use>
+        <use id="left-item85" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="185" />
+        </use>
+        <use id="left-item86" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="186" />
+        </use>
+        <use id="left-item87" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="187" />
+        </use>
+        <use id="left-item88" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="188" />
+        </use>
+        <use id="left-item89" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="189" />
+        </use>
+        <use id="left-item90" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="190" />
+        </use>
+        <use id="left-item91" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="191" />
+        </use>
+        <use id="left-item92" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="192" />
+        </use>
+        <use id="left-item93" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="193" />
+        </use>
+        <use id="left-item94" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="194" />
+        </use>
+        <use id="left-item95" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="195" />
+        </use>
+        <use id="left-item96" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="196" />
+        </use>
+        <use id="left-item97" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="197" />
+        </use>
+        <use id="left-item98" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="198" />
+        </use>
+        <use id="left-item99" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="199" />
+        </use>
+        <use id="left-item100" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="200" />
+        </use>
+      </use>
+    
+      <use id="settings-colon-container" href="#static-text" class="tumbler-colon h1">
+        <set href="#text" attributeName="text-buffer" to="-"/>
+      </use>
+    
+      <use id="tumbler-right" href="#tumblerview">
+        <use id="right-item0" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="100" />
+        </use>
+        <use id="right-item1" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="101" />
+        </use>
+        <use id="right-item2" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="102" />
+        </use>
+        <use id="right-item3" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="103" />
+        </use>
+        <use id="right-item4" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="104" />
+        </use>
+        <use id="right-item5" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="105" />
+        </use>
+        <use id="right-item6" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="106" />
+        </use>
+        <use id="right-item7" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="107" />
+        </use>
+        <use id="right-item8" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="108" />
+        </use>
+        <use id="right-item9" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="109" />
+        </use>
+        <use id="right-item10" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="110" />
+        </use>
+        <use id="right-item11" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="111" />
+        </use>
+        <use id="right-item12" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="112" />
+        </use>
+        <use id="right-item13" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="113" />
+        </use>
+        <use id="right-item14" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="114" />
+        </use>
+        <use id="right-item15" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="115" />
+        </use>
+        <use id="right-item16" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="116" />
+        </use>
+        <use id="right-item17" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="117" />
+        </use>
+        <use id="right-item18" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="118" />
+        </use>
+        <use id="right-item19" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="119" />
+        </use>
+        <use id="right-item20" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="120" />
+        </use>
+        <use id="right-item21" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="121" />
+        </use>
+        <use id="right-item22" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="122" />
+        </use>
+        <use id="right-item23" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="123" />
+        </use>
+        <use id="right-item24" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="124" />
+        </use>
+        <use id="right-item25" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="125" />
+        </use>
+        <use id="right-item26" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="126" />
+        </use>
+        <use id="right-item27" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="127" />
+        </use>
+        <use id="right-item28" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="128" />
+        </use>
+        <use id="right-item29" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="129" />
+        </use>
+        <use id="right-item30" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="130" />
+        </use>
+        <use id="right-item31" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="131" />
+        </use>
+        <use id="right-item32" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="132" />
+        </use>
+        <use id="right-item33" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="133" />
+        </use>
+        <use id="right-item34" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="134" />
+        </use>
+        <use id="right-item35" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="135" />
+        </use>
+        <use id="right-item36" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="136" />
+        </use>
+        <use id="right-item37" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="137" />
+        </use>
+        <use id="right-item38" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="138" />
+        </use>
+        <use id="right-item39" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="139" />
+        </use>
+        <use id="right-item40" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="140" />
+        </use>
+        <use id="right-item41" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="141" />
+        </use>
+        <use id="right-item42" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="142" />
+        </use>
+        <use id="right-item43" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="143" />
+        </use>
+        <use id="right-item44" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="144" />
+        </use>
+        <use id="right-item45" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="145" />
+        </use>
+        <use id="right-item46" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="146" />
+        </use>
+        <use id="right-item47" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="147" />
+        </use>
+        <use id="right-item48" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="148" />
+        </use>
+        <use id="right-item49" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="149" />
+        </use>
+        <use id="right-item50" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="150" />
+        </use>
+        <use id="right-item51" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="151" />
+        </use>
+        <use id="right-item52" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="152" />
+        </use>
+        <use id="right-item53" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="153" />
+        </use>
+        <use id="right-item54" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="154" />
+        </use>
+        <use id="right-item55" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="155" />
+        </use>
+        <use id="right-item56" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="156" />
+        </use>
+        <use id="right-item57" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="157" />
+        </use>
+        <use id="right-item58" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="158" />
+        </use>
+        <use id="right-item59" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="159" />
+        </use>
+        <use id="right-item60" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="160" />
+        </use>
+        <use id="right-item61" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="161" />
+        </use>
+        <use id="right-item62" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="162" />
+        </use>
+        <use id="right-item63" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="163" />
+        </use>
+        <use id="right-item64" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="164" />
+        </use>
+        <use id="right-item65" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="165" />
+        </use>
+        <use id="right-item66" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="166" />
+        </use>
+        <use id="right-item67" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="167" />
+        </use>
+        <use id="right-item68" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="168" />
+        </use>
+        <use id="right-item69" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="169" />
+        </use>
+        <use id="right-item70" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="170" />
+        </use>
+        <use id="right-item71" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="171" />
+        </use>
+        <use id="right-item72" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="172" />
+        </use>
+        <use id="right-item73" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="173" />
+        </use>
+        <use id="right-item74" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="174" />
+        </use>
+        <use id="right-item75" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="175" />
+        </use>
+        <use id="right-item76" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="176" />
+        </use>
+        <use id="right-item77" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="177" />
+        </use>
+        <use id="right-item78" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="178" />
+        </use>
+        <use id="right-item79" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="179" />
+        </use>
+        <use id="right-item80" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="180" />
+        </use>
+        <use id="right-item81" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="181" />
+        </use>
+        <use id="right-item82" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="182" />
+        </use>
+        <use id="right-item83" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="183" />
+        </use>
+        <use id="right-item84" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="184" />
+        </use>
+        <use id="right-item85" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="185" />
+        </use>
+        <use id="right-item86" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="186" />
+        </use>
+        <use id="right-item87" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="187" />
+        </use>
+        <use id="right-item88" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="188" />
+        </use>
+        <use id="right-item89" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="189" />
+        </use>
+        <use id="right-item90" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="190" />
+        </use>
+        <use id="right-item91" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="191" />
+        </use>
+        <use id="right-item92" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="192" />
+        </use>
+        <use id="right-item93" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="193" />
+        </use>
+        <use id="right-item94" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="194" />
+        </use>
+        <use id="right-item95" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="195" />
+        </use>
+        <use id="right-item96" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="196" />
+        </use>
+        <use id="right-item97" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="197" />
+        </use>
+        <use id="right-item98" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="198" />
+        </use>
+        <use id="right-item99" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="199" />
+        </use>
+        <use id="right-item100" href="#tumbler-item">
+          <set href="value/text" attributeName="text-buffer" to="200" />
+        </use>
+      </use>
+
 
     <!-- Save/Cancel Buttons -->
     <g id="save-btn" pointer-events="visible">
