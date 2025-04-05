@@ -1,5 +1,5 @@
 import * as document from "document";
-import { swapScreen } from "../../common/utils";
+import { ScreenManager } from "../../common/utils";
 
 export default class Settings {
     constructor(state) {
@@ -8,7 +8,11 @@ export default class Settings {
         this.onCancel = null;
 
         this.el = document.getElementById("settings-screen");
+        this.el.style.touchEvents = "enabled";
 
+        ScreenManager.setupSwipeBack(this.el, () => {
+            ScreenManager.show("home");
+        });
         // Initialize zone editors
         this.zoneEditors = [];
         for (let i = 0; i < 5; i++) {
@@ -29,6 +33,26 @@ export default class Settings {
         if (cancelBtn) {
             cancelBtn.onclick = () => this.onCancel && this.onCancel();
         }
+
+        this.setupSwipeGestures();
+    }
+
+    setupSwipeGestures() {
+        let touchStartX = 0;
+
+        this.el.onmousedown = (evt) => {
+            touchStartX = evt.screenX;
+        };
+
+        this.el.onmouseup = (evt) => {
+            const touchEndX = evt.screenX;
+            const deltaX = touchEndX - touchStartX;
+
+            // Swipe right to go back to home
+            if (deltaX > 50) {
+                ScreenManager.slideBack();s
+            }
+        };
     }
 
     handleSave() {
@@ -52,6 +76,6 @@ export default class Settings {
                 this.zoneEditors[i].max.value = zone.max.toString();
             }
         });
-        swapScreen(this.el);
+        ScreenManager.show("settings");
     }
 }

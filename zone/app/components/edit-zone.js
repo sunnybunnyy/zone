@@ -1,5 +1,5 @@
 import * as document from "document";
-import { swapScreen } from "../../common/utils";
+import { ScreenManager } from "../../common/utils";
 
 export default class EditZone {
     constructor(state) {
@@ -18,10 +18,28 @@ export default class EditZone {
         document.getElementById("max-up-btn").onclick = () => this.adjustMax(1);
         document.getElementById("max-down-btn").onclick = () => this.adjustMax(-1);
         document.getElementById("save-zone-btn").onclick = () => this.save();
+    
+        this.setupSwipeGestures();
     }
 
+    setupSwipeGestures() {
+        let touchStartX = 0;
+        
+        this.el.onmousedown = (evt) => {
+            touchStartX = evt.screenX;
+        };
+        
+        this.el.onmouseup = (evt) => {
+            const touchEndX = evt.screenX;
+            const deltaX = touchEndX - touchStartX;
+            
+            // Swipe right to go back to home
+            if (deltaX > 50) {
+                ScreenManager.slideBack();
+            }
+        };
+    }
     
-
     show(zoneIndex) {
         this.currentZoneIndex = zoneIndex;
         const zone = this.state.zones[zoneIndex];
@@ -30,7 +48,7 @@ export default class EditZone {
         this.minValueEl.text = zone.min;
         this.maxValueEl.text = zone.max;
 
-        swapScreen(this.el);
+        ScreenManager.show("editZone");
     }
 
     adjustMin(change) {

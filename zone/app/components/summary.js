@@ -1,5 +1,5 @@
 import * as document from "document";
-import { swapScreen } from "../../common/utils";
+import { ScreenManager } from "../../common/utils";
 
 export default class Summary {
     constructor(state) {
@@ -12,7 +12,26 @@ export default class Summary {
         if (doneBtn) {
             doneBtn.onclick = () => this.onDone && this.onDone();
         }
+        this.setupSwipeGestures();
     }
+
+    setupSwipeGestures() {
+        let touchStartX = 0;
+        
+        this.el.onmousedown = (evt) => {
+            touchStartX = evt.screenX;
+        };
+        
+        this.el.onmouseup = (evt) => {
+            const touchEndX = evt.screenX;
+            const deltaX = touchEndX - touchStartX;
+            
+            // Swipe right to go back to home
+            if (deltaX > 50) {
+                ScreenManager.slideBack();
+            }
+        };
+    }e
 
     calculateZoneTimes() {
         const zoneTimes = [0, 0, 0, 0, 0];
@@ -55,6 +74,6 @@ export default class Summary {
         const secs = Math.floor((totalTime % 60000) / 1000);
         document.getElementById("total-time").text = `${mins}m ${secs}s`;
 
-        swapScreen(this.el);
+        ScreenManager.show("settings");
     }
 }

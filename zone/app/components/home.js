@@ -1,5 +1,5 @@
 import * as document from "document";
-import { swapScreen } from "../../common/utils";
+import { ScreenManager } from "../../common/utils";
 import EditZone from "./edit-zone";
 
 export default class Home {
@@ -11,6 +11,12 @@ export default class Home {
         this.editZone = new EditZone(state);
 
         this.el = document.getElementById("home-screen");
+        this.bg = document.getElementById("home-bg");
+        this.el.style.touchEvents = "enabled";
+        this.bg.addEventListener("click", (evt) => {
+            this.turnGreen();
+        });
+        
         this.zoneLabels = [];
         this.zoneRanges = [];
         this.zoneEditButtons = [];
@@ -34,10 +40,11 @@ export default class Home {
             }
         }
 
+
         // Edit zone callback
         this.editZone.onSave = () => {
             this.update();
-            swapScreen(this.el);
+            ScreenManager.show("summary");
         };
 
         // Settings button
@@ -47,6 +54,29 @@ export default class Home {
         }
 
         this.update();
+    }
+
+    
+    turnGreen() {
+        this.bg.style.fill = "green";
+    }
+
+    setupSwipeGestures() {
+        let touchStartX = 0;
+
+        this.el.onmousedown = (evt) => {
+            touchStartX = evt.screenX;
+        };
+
+        this.el.onmouseup = (evt) => {
+            const touchEndX = evt.screenX;
+            const deltaX = touchEndX - touchStartX;
+
+            // Swipe right to go back (but home is root screen, so maybe disable or handle differently)
+            if (deltaX > 50) {
+                // On home screen, maybe do nothing or provide alternative action
+            }
+        };
     }
 
     handleZoneSelect(zoneIndex) {
@@ -73,7 +103,6 @@ export default class Home {
     }
     */
     show() {
-        this.update();
-        swapScreen(this.el);
+        ScreenManager.show("home");
     }
 }

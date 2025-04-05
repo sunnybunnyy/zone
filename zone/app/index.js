@@ -5,6 +5,7 @@ import { HeartRateSensor } from "heart-rate";
 import { vibration } from "haptics";
 import * as document from "document";
 import * as fs from "fs";
+import { ScreenManager } from "../common/utils";
 
 // Import screens
 import Home from "./components/home";
@@ -29,42 +30,13 @@ const settingsScreen = new Settings(state);
 const summaryScreen = new Summary(state);
 const editZoneScreen = new EditZone(state);
 
-class Navigation {
-    constructor() {
-        this.currentScreen = null;
-        this.screens = {
-            home: homeScreen,
-            run: runScreen,
-            settings: settingsScreen,
-            summary: summaryScreen,
-            editZone: editZoneScreen
-        };
-    }
-
-    show(screenName, ...args) {
-        // Hide current screen if exists
-        if (this.currentScreen && this.currentScreen.hide) {
-            this.currentScreen.hide();
-        }
-
-        // Show new screen
-        const screen = this.screens[screenName];
-        if (screen && screen.show) {
-            this.currentScreen = screen;
-            screen.show(...args);
-        }
-    }
-}
-
-const navigation = new Navigation();
-
 // Show home screen initially
-homeScreen.show();
+ScreenManager.show("home");
 
 // Navigation handlers
 homeScreen.onZoneSelected = (zone) => {
     state.currentZone = zone;
-    runScreen.show();
+    ScreenManager.show("run");
     startWorkout();
 };
 
@@ -73,18 +45,18 @@ homeScreen.onEditZone = (zoneIndex) => {
 };
 
 homeScreen.onSettingsSelected = () => {
-    settingsScreen.show();
+    ScreenManager.show("settings");
 };
 
 runScreen.onWorkoutEnd = () => {
     endWorkout();
-    summaryScreen.show();
+    ScreenManager.show("summary");
 };
 
 settingsScreen.onSave = (updatedZones) => {
     state.zones = updatedZones;
     saveZones(updatedZones);
-    homeScreen.show()
+    ScreenManager.show("home");
 };
 
 settingsScreen.onCancel = () => {
