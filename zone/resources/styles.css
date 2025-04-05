@@ -11,10 +11,6 @@
   fill: white;
 }
 
-.application-fill           { fill: fb-yellow; }
+.application-fill           { fill: fb-blue; }
 .foreground-fill            { fill: fb-white; }
 .background-fill            { fill: fb-black; }
-
-#myButton #text {
-  text-buffer: "BUTTON";
-}
