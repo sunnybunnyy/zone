@@ -13,7 +13,7 @@ export default class EditZone {
         this.zoneLabelEl = document.getElementById("current-zone-label");
 
         // Button handlers
-        document.getElementById("min-up-btn").onclick = () => this.adjustMin(1);
+        document.getElementById("min-up-btn").on = () => this.adjustMin(1);
         document.getElementById("min-down-btn").onclick = () => this.adjustMin(-1);
         document.getElementById("max-up-btn").onclick = () => this.adjustMax(1);
         document.getElementById("max-down-btn").onclick = () => this.adjustMax(-1);

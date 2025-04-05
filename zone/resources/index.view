@@ -46,9 +46,17 @@
     </g>
 
     <!-- Settings Button -->
-    <use id="settings-btn" href="#text-button" class="text-button bottom application-fill plus-button" y="85%" height="20%">
-      <set href="#text" attributeName="text-buffer" to="Settings" />
+    <use id="settings-btn" href="#text-button" class="text-button bottom left secondary application-fill" y="85%" height="20%">
+      <set href="#text" attributeName="text-buffer" to="Setup" />
       <set href="#text" attributeName="y" to="50%" />
+      <set href="#text" attributeName="x" to="60%" />
+    </use>
+
+    <!-- Start Button -->
+    <use id="start-btn" href="#text-button" class="text-button bottom right application-fill" y="85%" height="20%">
+      <set href="#text" attributeName="text-buffer" to="Start" />
+      <set href="#text" attributeName="y" to="50%" />
+      <set href="#text" attributeName="x" to="40%" />
     </use>
 
   </g>
