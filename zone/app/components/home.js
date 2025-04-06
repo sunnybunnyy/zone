@@ -25,26 +25,19 @@ export default class Home {
         for (let i = 0; i < 5; i++) {
             const zoneEl = document.getElementById(`zone-${i + 1}`);
             if (zoneEl) {
-                // Main zone click starts workout
+                // Entire zone click goes to settings
                 zoneEl.onclick = (evt) => {
-                    // Check if we clicked on the range text (for editing)
-                    if (evt.target && evt.target.id && evt.target.id.includes("range")) {
-                        this.handleEditZone(i);
-                    } else {
-                        this.handleZoneSelect(i);
-                    }
+                    this.onSettingsSelected && this.onSettingsSelected(i);
                 };
-                
                 this.zoneLabels.push(document.getElementById(`zone-${i + 1}-label`));
                 this.zoneRanges.push(document.getElementById(`zone-${i + 1}-range`));
             }
         }
 
-
         // Edit zone callback
         this.editZone.onSave = () => {
             this.update();
-            ScreenManager.show("summary");
+            ScreenManager.show("home");
         };
 
         // Settings button

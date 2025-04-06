@@ -19,14 +19,14 @@ let tumblerRight = document.getElementById("tumbler-right");
 
 tumblerLeft.addEventListener("select", (evt) => {
   let selectedIndex = parseInt(tumblerLeft.value);
-  let selectedItem = tumblerLeft.getElementById(`hour-item${selectedIndex}`);
+  let selectedItem = tumblerLeft.getElementById(`left-item${selectedIndex}`);
   let selectedValue = selectedItem.getElementById("text").text;
   console.log(`HOUR: index: ${selectedIndex} :: value: ${selectedValue}`);
 });
 
 tumblerRight.addEventListener("select", (evt) => {
   let selectedIndex = tumblerRight.value;
-  let selectedItem = tumblerRight.getElementById(`min-item${selectedIndex}`);
+  let selectedItem = tumblerRight.getElementById(`right-item${selectedIndex}`);
   let selectedValue = selectedItem.getElementById("text").text;
   console.log(`MINS: index: ${selectedIndex} :: value: ${selectedValue}`);
 });
@@ -61,8 +61,9 @@ homeScreen.onEditZone = (zoneIndex) => {
     editZoneScreen.show(zoneIndex);
 };
 
-homeScreen.onSettingsSelected = () => {
-    ScreenManager.show("settings");
+homeScreen.onSettingsSelected = (zoneIndex) => {
+    settingsScreen.show(zoneIndex);
+    // ScreenManager.show("settings");
 };
 
 runScreen.onWorkoutEnd = () => {
@@ -70,9 +71,10 @@ runScreen.onWorkoutEnd = () => {
     ScreenManager.show("summary");
 };
 
-settingsScreen.onSave = (updatedZones) => {
-    state.zones = updatedZones;
-    saveZones(updatedZones);
+settingsScreen.onSave = () => {
+    homeScreen.update();
+    // state.zones = updatedZones;
+    // saveZones(updatedZones);
     ScreenManager.show("home");
 };
 

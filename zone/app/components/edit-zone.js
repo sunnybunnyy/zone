@@ -73,10 +73,13 @@ export default class EditZone {
 
     save() {
         this.state.zones[this.currentZoneIndex].min = parseInt(this.minValueEl.text);
-        this.state.zone[this.currentZoneIndex].max = parseInt(this.maxValueEl.text);
+        this.state.zones[this.currentZoneIndex].max = parseInt(this.maxValueEl.text);
 
         if (this.onSave) {
             this.onSave();
         }
+
+        // Go back to home screen after saving
+        ScreenManager.show('home');
     }
 }
