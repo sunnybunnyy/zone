@@ -63,18 +63,25 @@
   <!-- Run Mode Screen -->
   <g id="run-screen" class="screen" display="none"  pointer-events="visible" >
     <rect id="run-bg" width="100%" height="100%" fill="black" />
-    <text id="run-title" x="50%" y="10%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone Run</text>
+    <text id="zone-label" x="50%" y="20%" text-anchor="middle" fill="white" font-size="30" font-weight="bold">Zone 2</text>
 
-    <text id="zone-label" x="50%" y="20%" text-anchor="middle" fill="white">Zone 3</text>
-    <text id="hr-value" x="50%" y="50%" text-anchor="middle" fill="#ff5555" font-size="36">142</text>
-    <text id="hr-unit" x="50%" y="55%" text-anchor="middle" fill="white">bpm</text>
+    <text id="hr-value" x="50%" y="50%" text-anchor="middle" fill="#ff5555" font-size="100">142</text>
+    <text id="hr-unit" x="73%" y="50%" fill="white" font-size="30">bpm</text>
     
-    <image id="warning" x="45%" y="60%" width="10%" height="10%" href="warning.png" display="none" />
+    <image id="warning" x="23%" y="57%" width="10%" height="10%" href="warning.png" display="none" />
+    <text id="warning-text" x="35%" y="65%" fill="#ff5555" font-size="30" display="none">out of zone</text>
     
+    <use id="end-workout-btn" href="#text-button" class="text-button bottom application-fill" y="75%">
+      <set href="#text" attributeName="text-buffer" to="End Run" />
+      <set href="#text" attributeName="y" to="50%" />
+      <set href="#text" attributeName="font-size" to="30" />
+    </use>
+    <!--
     <g id="end-workout-btn">
       <rect id="end-btn-bg" width="40%" height="12%" x="30%" y="80%" rx="10" fill="#333333" />
       <text id="end-btn-text" x="50%" y="87%" text-anchor="middle" fill="white">End Workout</text>
     </g>
+    -->
   </g>
 
   <!-- Settings Screen -->

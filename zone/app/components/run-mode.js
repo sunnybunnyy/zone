@@ -17,7 +17,9 @@ export default class RunMode {
         this.hrDisplay = document.getElementById("hr-value");
         this.zoneDisplay = document.getElementById("zone-label");
         console.log(`Zone display element: ${this.zoneDisplay ? "FOUND" : "MISSING"}`);
-        this.warningDisplay = document.getElementById("warning");
+        const warningImg = document.getElementById("warning");
+        let warningText = document.getElementById("warning-text");
+        this.warningDisplay = [warningImg, warningText];
 
         const endBtn = document.getElementById("end-workout-btn");
         if (endBtn) {
@@ -65,13 +67,17 @@ export default class RunMode {
 
     showOutOfZoneWarning() {
         if (this.warningDisplay) {
-            this.warningDisplay.style.display = "inline";
+            this.warningDisplay.forEach(el => {
+                el.style.display = "inline";
+            });
         }
     }
 
     clearWarning() {
         if (this.warningDisplay) {
-            this.warningDisplay.style.display = "none";
+            this.warningDisplay.forEach(el => {
+                el.style.display = "none";
+            });
         }
     }
 
