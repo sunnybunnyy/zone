@@ -16,6 +16,7 @@ export default class RunMode {
         });
         this.hrDisplay = document.getElementById("hr-value");
         this.zoneDisplay = document.getElementById("zone-label");
+        console.log(`Zone display element: ${this.zoneDisplay ? "FOUND" : "MISSING"}`);
         this.warningDisplay = document.getElementById("warning");
 
         const endBtn = document.getElementById("end-workout-btn");
@@ -47,6 +48,18 @@ export default class RunMode {
     updateHR(hr) {
         if (this.hrDisplay) {
             this.hrDisplay.text = hr;
+
+            // Update colour based on zone compliance
+            if (this.state.currentZone !== null) {
+                const zone = this.state.zones[this.state.currentZone];
+                if (hr < zone.min || hr > zone.max) {
+                    this.hrDisplay.style.fill = '#ff5555'; // Red when out of zone
+                    this.showOutOfZoneWarning();
+                } else {
+                    this.hrDisplay.style.fill = '#00ff00'; // Green when in zone
+                    this.clearWarning();
+                }
+            }
         }
     }
 
@@ -63,11 +76,28 @@ export default class RunMode {
     }
 
     show() {
-        if (this.zoneDisplay && this.state.currentZone !== null) {
+        console.log(`Showing run screen with zone: ${this.state.currentZone}`);
+        if (this.state.currentZone !== null) {
             const zone = this.state.zones[this.state.currentZone];
-            this.zoneDisplay.text = `Zone ${this.state.currentZone + 1}: ${zone.label}`;
+            console.log(`Zone data:`, zone);
+            
+            if (this.zoneDisplay) {
+                console.log(`Displaying zone: ${this.state.currentZone + 1}: ${zone.label}`);
+                this.zoneDisplay.text = `Zone ${this.state.currentZone + 1}: ${zone.label}`;
+            } else {
+                console.log("zoneDisplay element not found");
+            }
+
+        } else {
+            console.log("No zone selected");
         }
+        
+        // Displays target range
+        // if (this.rangeDisplay) {
+        //      this.rangeDisplay.text = `Target: ${zone.min}-${zone.max} bpm`;
+        // }
         this.clearWarning();
         ScreenManager.show("run");
+        
     }
 }

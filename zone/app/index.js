@@ -52,8 +52,10 @@ ScreenManager.show("home");
 
 // Navigation handlers
 homeScreen.onZoneSelected = (zone) => {
+    console.log(`Setting current zone to: ${zone}`);
     state.currentZone = zone;
-    ScreenManager.show("run");
+    console.log(`Zone info: ${JSON.stringify(state.zones[zone])}`);
+    runScreen.show(); // Updates the zone display
     startWorkout();
 };
 

@@ -104,8 +104,17 @@ export default class Home {
 
     selectZone(zoneIndex) {
         console.log(`Selecting zone: ${zoneIndex + 1}`);
-        // Clear any previous selection
-        this.clearZoneSelection();
+        
+        // Clear any previous selection visually
+        this.zoneBgs.forEach((bg, index) => {
+            if (index !== zoneIndex) { // Only clear other zones
+                bg.forEach(el => {
+                    if (el) {
+                        el.style.fill = '#222222'; // Default bakcground colour
+                    }
+                });
+            }
+        });
         
         // Highlight the selected zone
         const zoneBg = this.zoneBgs[zoneIndex];
@@ -154,6 +163,8 @@ export default class Home {
     }
 
     handleZoneSelect(zoneIndex) {
+        console.log(`Zone selected: ${zoneIndex}`);
+        this.state.currentZone = zoneIndex;
         this.onZoneSelected && this.onZoneSelected(zoneIndex);
     }
 
