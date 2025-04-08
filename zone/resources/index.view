@@ -6,41 +6,41 @@
 
     <!-- Zone List -->
     <g id="zone-1">
-      <circle cx="10%" cy="18%" r="16" fill="#222222" />
+      <circle id="zone-1-circle1-bg" cx="10%" cy="18%" r="16" fill="#222222" />
       <rect id="zone-1-bg" width="80%" height="10%" x="10%" y="13%" rx="10" fill="#222222" pointer-events="visible" />
-      <circle cx="90%" cy="18%" r="16" fill="#222222" />
+      <circle id="zone-1-circle2-bg" cx="90%" cy="18%" r="16" fill="#222222" />
       <text id="zone-1-label" x="10%" y="20%" fill="white" font-size="24">Zone 1</text>
       <text id="zone-1-range" x="85%" y="20%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-2">
-      <circle cx="10%" cy="33%" r="16" fill="#222222" />
+      <circle id="zone-2-circle1-bg" cx="10%" cy="33%" r="16" fill="#222222" />
       <rect id="zone-2-bg" width="80%" height="10%" x="10%"  y="28%" rx="10" fill="#222222" pointer-events="visible" />
-      <circle cx="90%" cy="33%" r="16" fill="#222222" />
+      <circle id="zone-2-circle2-bg" cx="90%" cy="33%" r="16" fill="#222222" />
       <text id="zone-2-label" x="10%" y="35%" fill="white" font-size="24">Zone 2</text>
       <text id="zone-2-range" x="85%" y="35%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
     
     <g id="zone-3">
-      <circle cx="10%" cy="47%" r="16" fill="#222222" />
+      <circle id="zone-3-circle1-bg" cx="10%" cy="47%" r="16" fill="#222222" />
       <rect id="zone-3-bg" width="80%" height="10%" x="10%"  y="42%" rx="10" fill="#222222" pointer-events="visible" />
-      <circle cx="90%" cy="47%" r="16" fill="#222222" />
+      <circle id="zone-3-circle2-bg" cx="90%" cy="47%" r="16" fill="#222222" />
       <text id="zone-3-label" x="10%" y="49%" fill="white" font-size="24">Zone 3</text>
       <text id="zone-3-range" x="85%" y="49%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-4">
-      <circle cx="10%" cy="61%" r="16" fill="#222222" />
+      <circle id="zone-4-circle1-bg" id="zone-4-circle1-bg" cx="10%" cy="61%" r="16" fill="#222222" />
       <rect id="zone-4-bg" width="80%" height="10%" x="10%" y="56%" rx="10" fill="#222222" pointer-events="visible" />
-      <circle cx="90%" cy="61%" r="16" fill="#222222" />
+      <circle id="zone-4-circle2-bg" id="zone-4-circle2-bg" cx="90%" cy="61%" r="16" fill="#222222" />
       <text id="zone-4-label" x="10%" y="63%" fill="white" font-size="24">Zone 4</text>
       <text id="zone-4-range" x="85%" y="63%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>
 
     <g id="zone-5">
-      <circle cx="10%" cy="75%" r="16" fill="#222222" />
+      <circle id="zone-5-circle1-bg" cx="10%" cy="75%" r="16" fill="#222222" />
       <rect id="zone-5-bg" width="80%" height="10%" x="10%" y="70%" rx="10" fill="#222222" pointer-events="visible" />
-      <circle cx="90%" cy="75%" r="16" fill="#222222" />
+      <circle id="zone-5-circle2-bg" cx="90%" cy="75%" r="16" fill="#222222" />
       <text id="zone-5-label" x="10%" y="77%" fill="white" font-size="24">Zone 5</text>
       <text id="zone-5-range" x="85%" y="77%" text-anchor="end" fill="#cccccc" font-size="18">00000000000</text>
     </g>

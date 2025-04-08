@@ -27,7 +27,9 @@ export default class Home {
             const zoneEl = document.getElementById(`zone-${i + 1}`);
             if (zoneEl) {
                 const zoneBg = document.getElementById(`zone-${i + 1}-bg`);
-                this.zoneBgs.push(zoneBg);
+                const zoneCircle1Bg = document.getElementById(`zone-${i + 1}-circle1-bg`);
+                const zoneCircle2Bg = document.getElementById(`zone-${i + 1}-circle2-bg`);
+                this.zoneBgs.push([zoneBg, zoneCircle1Bg, zoneCircle2Bg]);
                 
                 // Store the current index in a closure-safe way
                 const index = i;
@@ -107,19 +109,24 @@ export default class Home {
         
         // Highlight the selected zone
         const zoneBg = this.zoneBgs[zoneIndex];
-        if (zoneBg) {
-            zoneBg.style.fill = "#0066cc"; // Bright blue highlight
-            this.selectedZoneIndex = zoneIndex;
-        }
+        zoneBg.forEach(el => {
+            if (el) {
+                el.style.fill = "#0066cc"; // Bright blue highlight
+                this.selectedZoneIndex = zoneIndex;
+            }
+        });
+        
     }
     
     clearZoneSelection() {
         console.log("Clearing zone selection");
         // Reset all zone backgrounds
         this.zoneBgs.forEach(bg => {
-            if (bg) {
-                bg.style.fill = "#222222"; // Default background color
-            }
+            bg.forEach(el => {
+                if (el) {
+                    el.style.fill = "#222222"; // Default background color
+                }
+            });
         });
         this.selectedZoneIndex = null;
     }
