@@ -8,12 +8,6 @@ export default class RunMode {
 
         this.el = document.getElementById("run-screen");
         this.el.style.touchEvents = "enabled";
-
-        ScreenManager.setupSwipeBack(this.el, () => {
-            if (confirm("End workout and go back?")) {
-                ScreenManager.show("home");
-            }
-        });
         this.hrDisplay = document.getElementById("hr-value");
         this.zoneDisplay = document.getElementById("zone-label");
         console.log(`Zone display element: ${this.zoneDisplay ? "FOUND" : "MISSING"}`);
@@ -23,28 +17,19 @@ export default class RunMode {
 
         const endBtn = document.getElementById("end-workout-btn");
         if (endBtn) {
-            endBtn.onclick = () => this.onWorkoutEnd && this.onWorkoutEnd();
+            endBtn.onclick = () => {
+                console.log("End workout button clicked");
+                // Make sure to call the callback
+                if (this.onWorkoutEnd) {
+                    console.log("Calling onWorkoutEnd callback");
+                    this.onWorkoutEnd();
+                } else {
+                    console.log("WARNING: onWorkoutEnd callback is not defined");
+                }
+            };
+        } else {
+            console.log("WARNING: End workout button not found");
         }
-
-        this.setupSwipeGestures();
-    }
-
-    setupSwipeGestures() {
-        let touchStartX = 0;
-
-        this.el.onmousedown = (evt) => {
-            touchStartX = evt.screenX;
-        };
-
-        this.el.onmouseup = (evt) => {
-            const touchEndX = evt.screenX;
-            const deltaX = touchEndX - touchStartX;
-
-            // Swipe right to go back to home
-            if (deltaX > 50) {
-                ScreenManager.slideBack();
-            }
-        };
     }
 
     updateHR(hr) {
@@ -68,7 +53,7 @@ export default class RunMode {
     showOutOfZoneWarning() {
         if (this.warningDisplay) {
             this.warningDisplay.forEach(el => {
-                el.style.display = "inline";
+                if (el) el.style.display = "inline";
             });
         }
     }
@@ -76,7 +61,7 @@ export default class RunMode {
     clearWarning() {
         if (this.warningDisplay) {
             this.warningDisplay.forEach(el => {
-                el.style.display = "none";
+                if (el) el.style.display = "none";
             });
         }
     }
@@ -93,17 +78,11 @@ export default class RunMode {
             } else {
                 console.log("zoneDisplay element not found");
             }
-
         } else {
             console.log("No zone selected");
         }
         
-        // Displays target range
-        // if (this.rangeDisplay) {
-        //      this.rangeDisplay.text = `Target: ${zone.min}-${zone.max} bpm`;
-        // }
         this.clearWarning();
         ScreenManager.show("run");
-        
     }
 }

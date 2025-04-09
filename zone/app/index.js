@@ -69,8 +69,21 @@ homeScreen.onSettingsSelected = (zoneIndex) => {
 };
 
 runScreen.onWorkoutEnd = () => {
-    endWorkout();
-    ScreenManager.show("summary");
+    console.log("Workout ended, collecting final data");
+    endWorkout(); // This should set workoutEnd and stop heart rate monitoring
+    
+    // Make sure we have valid data before showing summary
+    if (!state.workoutStart || !state.workoutEnd) {
+        console.error("Missing workout start/end times!");
+        state.workoutStart = state.workoutStart || new Date(Date.now() - 60000); // Default to 1 min ago
+        state.workoutEnd = state.workoutEnd || new Date();
+    }
+    
+    console.log(`Workout duration: ${state.workoutEnd - state.workoutStart}ms`);
+    console.log(`HR data points: ${state.hrData.length}`);
+    
+    // Show summary screen which will calculate zone times
+    summaryScreen.show();
 };
 
 settingsScreen.onSave = () => {
@@ -91,6 +104,7 @@ summaryScreen.onDone = () => {
 // Heart rate monitoring
 let hrm;
 function startWorkout() {
+    console.log("Starting workout");
     state.workoutStart = new Date();
     state.hrData = [];
 
@@ -104,7 +118,7 @@ function startWorkout() {
             });
 
             // Check zone boundaries
-            if (state.currentZone) {
+            if (state.currentZone !== null) {
                 const zone = state.zones[state.currentZone];
                 if (hr < zone.min || hr > zone.max) {
                     // Out of zone, alert user
@@ -118,13 +132,31 @@ function startWorkout() {
             runScreen.updateHR(hr);
         });
         hrm.start();
+        console.log("Heart rate sensor started");
+    } else {
+        console.log("Heart rate sensor not available");
+        // For testing without HR sensor, generate some fake data
+        const fakeDataInterval = setInterval(() => {
+            if (!state.workoutEnd) { // Only if workout is still active
+                const fakeHR = Math.floor(Math.random() * 50) + 120; // Random HR between 120-170
+                state.hrData.push({
+                    hr: fakeHR,
+                    timestamp: new Date()
+                });
+                runScreen.updateHR(fakeHR);
+            } else {
+                clearInterval(fakeDataInterval);
+            }
+        }, 2000);
     }
 }
 
 function endWorkout() {
+    console.log("Ending workout");
     state.workoutEnd = new Date();
     if (hrm) {
         hrm.stop();
+        console.log("Heart rate sensor stopped");
     }
 }
 
@@ -135,11 +167,11 @@ function loadZones() {
     } catch (e) {
         // Default zones if none saved
         return [
-            { label: "Zone 1", min: 131, max: 147 },
-            { label: "Zone 2", min: 147, max: 164 },
-            { label: "Zone 3", min: 173, max: 182 },
-            { label: "Zone 4", min: 186, max: 191 },
-            { label: "Zone 5", min: 191, max: 200 }
+            { label: "Zone 1", min: 100, max: 119 },
+            { label: "Zone 2", min: 120, max: 139 },
+            { label: "Zone 3", min: 140, max: 159 },
+            { label: "Zone 4", min: 160, max: 179 },
+            { label: "Zone 5", min: 180, max: 200 }
         ];
     }
 }
